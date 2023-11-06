@@ -6,14 +6,14 @@ from beaufort_cipher import Beaufort_Cipher, Beaufort_Error
 
 def get_text_entry(text_entry):
     """ Функция для получения текста из поля ввода """
-    return text_entry.get(1.0, tk.END + "-1c").replace(" ", "_").split("_")
+    return text_entry.get(1.0, tk.END + "-1c").replace(" ", "_")
 
 
 def load_text(cipher, text_entry):
     """ Функция-обработчик для кнопки загрузки текста """
     text = ""
     try:
-        text = "_".join(cipher.load_text("text.txt"))
+        text = cipher.load_text("text.txt")
         text_entry.delete(1.0, tk.END)
         text_entry.insert(1.0, text)
     except Beaufort_Error as e:
